@@ -75,3 +75,9 @@ class variableclass(object):
         
         return np.minimum(1., cachesize / self.documulativenew(t))
     
+
+    # size of annotation batch if annotation takes a given time (annnotationtime in seconds, time in years)
+    def annotationbatchsize(self, t, annotationtime):
+
+        # nbatch / annotationtime = rate new of objects
+        return self.doratenew(t) * (annotationtime / (24. * 60 * 60.))
